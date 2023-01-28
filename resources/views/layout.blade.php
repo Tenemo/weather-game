@@ -20,7 +20,11 @@
 
 <body>
     <noscript>You need to enable JavaScript to run this app. </noscript>
-    <header class="header"><a href="{{ route('home') }}">weather.game</a></header>
+    <header class="header">
+        <a href="{{ route('home') }}">
+            weather.game
+        </a>
+    </header>
     @if (session('success'))
     <div class="flash-success">{{ session('success') }}</div>
     @endif

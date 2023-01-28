@@ -19,5 +19,7 @@
     "php.validate.executablePath": "c:/php8/php.exe",
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
-    }
+    },
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80
 }

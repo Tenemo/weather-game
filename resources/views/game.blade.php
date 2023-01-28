@@ -5,8 +5,8 @@
 <form method="POST" action="{{ route('answer.store') }}">
     @csrf
     <label for="answer">Answer in celsius:</label>
-    <input id="answer" class="@error('answer') error-border @enderror" type="text" name="answer" value="{{ old('title') }}">
-    @error('title')
+    <input autocomplete="off" id="answer" class="@error('answer') error-border @enderror" type="text" name="answer" value="{{ old('answer') }}">
+    @error('answer')
     <div class="error">
         {{ $message }}
     </div>
