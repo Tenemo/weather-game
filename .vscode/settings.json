@@ -7,9 +7,10 @@
     "editor.bracketPairColorization.enabled": true,
     "editor.guides.bracketPairs": true,
     "files.eol": "\n",
-
+    "css.validate": true,
+    "scss.validate": true,
     "workbench.iconTheme": "vscode-icons",
-    "cSpell.words": ["Laravel"],
+    "cSpell.words": ["endsection", "Laravel"],
     "html.autoClosingTags": true,
     "editor.parameterHints.enabled": true,
     "editor.hover.enabled": true,
