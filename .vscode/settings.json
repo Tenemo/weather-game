@@ -9,5 +9,14 @@
     "files.eol": "\n",
 
     "workbench.iconTheme": "vscode-icons",
-    "cSpell.words": ["Laravel"]
+    "cSpell.words": ["Laravel"],
+    "html.autoClosingTags": true,
+    "editor.parameterHints.enabled": true,
+    "editor.hover.enabled": true,
+    "php.validate.enable": true,
+    "php.validate.run": "onSave",
+    "php.validate.executablePath": "c:/php8/php.exe",
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    }
 }
