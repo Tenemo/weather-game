@@ -5,7 +5,7 @@ namespace MyApp\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\App;
 
-class HttpsProtocol {
+class ForceHttps {
 
     public function handle($request, Closure $next)
     {
