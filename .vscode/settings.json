@@ -8,5 +8,6 @@
     "editor.guides.bracketPairs": true,
     "files.eol": "\n",
 
-    "workbench.iconTheme": "vscode-icons"
+    "workbench.iconTheme": "vscode-icons",
+    "cSpell.words": ["Laravel"]
 }
