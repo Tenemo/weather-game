@@ -12,6 +12,8 @@ Route::get('/', [HomeController::class, 'home'])
 Route::resource('play', GameController::class)
     ->except([
         'create',
+        'edit',
+        'destroy',
     ]);
 Route::resource('answer', AnswerController::class)
     ->except([

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
+
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -24,12 +26,16 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
+        $game = new Game();
+        $game->save();
+
+
         return
             redirect()
             ->route('play.index')
             ->with(
                 'success',
-                'Game created'
+                'Game created, uuid: ' . $game->id
             );
     }
 
@@ -63,17 +69,6 @@ class GameController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
     {
         //
     }
