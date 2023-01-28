@@ -1,41 +1,24 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\AnswerController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return view("home");
-})
+Route::get('/', [HomeController::class, 'home'])
     ->name('home');
 
-Route::get('/game', function () {
-    return view("game");
-})
-    ->name('game');
-
-Route::post('/game', function (Request $request) {
-    return
-        redirect()
-        ->route('game')
-        ->with(
-            'success',
-            'Game created'
-        );
-})
-    ->name('game.store');
-
-Route::post('/answer', function (Request $request) {
-    $request->input('answer');
-    $request->validate([
-        'answer' => 'required|numeric|between:-100,100'
+Route::resource('play', GameController::class)
+    ->except([
+        'create',
     ]);
-    return
-        redirect()
-        ->route('game')
-        ->with(
-            'success',
-            'Answer submitted' . $request->input('answer')
-        );
-})
-    ->name('answer.store');
+Route::resource('answer', AnswerController::class)
+    ->except([
+        'index',
+        'create',
+        'show',
+        'edit',
+        'update',
+        'destroy'
+    ]);
