@@ -1,3 +1,3 @@
 release: npm install
-release: npm build
+release: npm run build
 web: vendor/bin/heroku-php-apache2 public/
