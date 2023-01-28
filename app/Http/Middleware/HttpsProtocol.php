@@ -1,11 +1,11 @@
 <?php
 
-namespace MyApp\Http\Middleware;
+namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\App;
 
-class ForceHttps {
+class HttpsProtocol {
 
     public function handle($request, Closure $next)
     {
