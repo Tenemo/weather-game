@@ -13,7 +13,7 @@
             <tbody>
                 @foreach ($highScores as $score)
                 <tr>
-                    <td>{{ $loop->index + 1}}</td>
+                    <td>{{ $loop->index + 1}}.</td>
                     <td>{{ $score->score }}</td>
                     <td>{{ $score->username }}</td>
                 </tr>
