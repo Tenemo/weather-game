@@ -37,6 +37,10 @@ class GameController extends Controller
             ->with(
                 'success',
                 'Game created, uuid: ' . $game->id
+            )
+            ->with(
+                'success',
+                'Game created, uuid: ' . $game->id
             );
     }
 

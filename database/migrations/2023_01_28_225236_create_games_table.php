@@ -20,7 +20,6 @@ return new class extends Migration
                 ->nullable($value = true);
 
             $table->uuid('user_id')
-                ->unique()
                 ->nullable($value = true);
 
             $table->foreign('user_id')
