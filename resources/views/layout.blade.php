@@ -32,6 +32,11 @@
         <a class="logo" href="{{ route('home') }}">
             weather.game
         </a>
+    </header>
+    <main>
+        @yield('content')
+    </main>
+    <footer>
         @auth
         <div class="userActions">
             <span class="username">Logged in as <b>{{ Auth::user()->name }}</b></span>
@@ -45,11 +50,8 @@
             <a class="login" href="{{ route('login') }}">Login</a>
         </div>
         @endauth
-    </header>
-    <main>
-        @yield('content')
-    </main>
-    <footer>Source:&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://github.com/Tenemo/weather-game">/weather-game</a></footer>
+        <span>Source:&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://github.com/Tenemo/weather-game">/weather-game</a><span></span>
+    </footer>
 </body>
 
 </html>
