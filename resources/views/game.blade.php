@@ -7,7 +7,7 @@
     <form method="POST" action="{{ route('answer.store') }}">
         @csrf
         Round {{ $answers_count }} out of {{ $gameLength }}.
-        <p>What is the current temperature in <b>{{ $city }}</b>? Country: <b>{{ $country }}</b>, continent: <b>{{ $continent }}</b>. Current time there is {{ $time }}.</p>
+        <p>What is the current temperature in <b>{{ $city }}</b>? Country: <b>{{ $country }}</b>, continent: <b>{{ $continent }}</b>. Current time there: {{ $time }}.</p>
         <label for="answer">Answer in celsius:</label>
         <input autocomplete="off" id="answer" class="@error('answer') error-border @enderror" type="number" min="-99" max="99" step="1" required name="answer" value="{{ old('answer') }}">
         @error('answer')
