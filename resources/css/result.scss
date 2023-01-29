@@ -1,11 +1,14 @@
 section.result {
     flex: 1;
     height: 100%;
-    padding: 20px;
+    p {padding: 20px;}
     table {
         margin-top: 20px;
         margin-bottom: 20px;
         width: 100%;
+        td, th {
+            padding-left: 20px;
+        }
         thead {
             tr th {
                 &.index {
@@ -26,15 +29,15 @@ section.result {
             border-bottom: 1px solid lightgrey;
         }
     }
+    form {
+        padding: 0 20px;
+    }
     button {
-        margin-top: 10px;
+        margin: 20px 0 0 0;
     }
     form.set-username {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-    }
-    .try-again {
-        margin-top: 30px;
     }
 }
