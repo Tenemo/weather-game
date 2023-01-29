@@ -15,7 +15,8 @@ class GameController extends Controller
      */
     public function index()
     {
-        return view('game');
+        $hint = mt_rand(-20, 40);
+        return view('game', compact('hint'));
     }
 
     /**

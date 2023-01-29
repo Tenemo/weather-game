@@ -10,7 +10,13 @@
     "css.validate": true,
     "scss.validate": true,
     "workbench.iconTheme": "vscode-icons",
-    "cSpell.words": ["enderror", "endsection", "Laravel"],
+    "cSpell.words": [
+        "enderror",
+        "endforelse",
+        "endsection",
+        "forelse",
+        "Laravel"
+    ],
     "html.autoClosingTags": true,
     "editor.parameterHints.enabled": true,
     "editor.hover.enabled": true,

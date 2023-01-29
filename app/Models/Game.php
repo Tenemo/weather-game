@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Game extends Model
 {
-    use HasUuids;
-    use HasFactory;
+    use HasUuids, HasFactory;
+    protected $fillable = [
+        'score',
+    ];
 }

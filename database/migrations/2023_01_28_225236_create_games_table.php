@@ -14,7 +14,19 @@ return new class extends Migration
     public function up()
     {
         Schema::create('games', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('id')->primary();
+
+            $table->integer('score')
+                ->nullable($value = true);
+
+            $table->uuid('user_id')
+                ->unique()
+                ->nullable($value = true);
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users');
+
             $table->timestamps();
         });
     }

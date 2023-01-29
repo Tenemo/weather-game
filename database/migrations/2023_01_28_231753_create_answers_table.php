@@ -14,7 +14,26 @@ return new class extends Migration
     public function up()
     {
         Schema::create('answers', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')
+                ->primary();
+
+            $table->integer('score');
+
+            $table->uuid('user_id')
+                ->unique()
+                ->nullable($value = true);
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users');
+
+            $table->uuid('game_id')
+                ->unique();
+
+            $table->foreign('game_id')
+                ->references('id')
+                ->on('games');
+
             $table->timestamps();
         });
     }
