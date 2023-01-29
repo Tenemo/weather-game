@@ -1,19 +1,21 @@
 section.highScores {
     display: flex;
     flex-direction: column;
+    flex: 1;
     overflow-y: auto;
-    flex-shrink: 0;
-    flex-grow: 0;
     margin-top: 20px;
+    max-height: 300px;
     h4 {
         padding: 10px 20px;
     }
     .table-container {
+        display: flex;
+        flex: 1;
         overflow-y: auto;
+        max-height: 300px;
         table {
-            flex: 1;
-            overflow-y: auto;
             width: 100%;
+            overflow-y: auto;
             padding-bottom: 20px;
             td, th {
                 padding: 5px;
