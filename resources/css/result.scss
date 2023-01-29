@@ -1,4 +1,6 @@
 section.result {
+    flex: 1;
+    height: 100%;
     padding: 20px;
     table {
         width: 100%;
@@ -7,11 +9,11 @@ section.result {
                 &.index {
                     width: 50px;
                 }
-                &.continent {
-                    width: 100px;
+                &.score {
+                    width: 70px;
                 }
                 &.value {
-                    width: 110px;
+                    width: 130px;
                 }
                 &.correct_answer {
                     width: 180px;

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use App\Models\Answer;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -45,12 +45,19 @@ class GameController extends Controller
             ->count();
 
         if ($answers_count > $gameLength - 1) {
+            $highScores = DB::table('games')
+                ->join('users', 'games.user_id', '=', 'users.id')
+                ->select('users.name', 'games.score')
+                ->orderBy('score', 'desc')
+                ->take(10)
+                ->get();
             return view('result', [
                 'game_short_id' => strtoupper(substr($id, -4)),
                 'gameLength' => $gameLength,
                 'answers_count' => $answers_count,
                 'answers' => $answers,
                 'score' => $game->score,
+                'highScores' => $highScores,
             ]);
         }
         $json = file_get_contents(base_path('resources/cities.json'), true);
