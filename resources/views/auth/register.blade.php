@@ -9,7 +9,7 @@
         @csrf
 
         <label>Name</label>
-        <input class="@error('name') error-border @enderror" type="text" name="name" value="{{ old('name') }}" required>
+        <input class="form-control @error('name') error-border @enderror" type="text" name="name" value="{{ old('name') }}" required>
         @error('name')
         <div class="error">
             {{ $message }}
@@ -17,7 +17,7 @@
         @enderror
 
         <label>Email</label>
-        <input class="@error('email') error-border @enderror" type="text" name="email" value="{{ old('email') }}" required>
+        <input class="form-control @error('email') error-border @enderror" type="text" name="email" value="{{ old('email') }}" required>
         @error('email')
         <div class="error">
             {{ $message }}
@@ -25,14 +25,14 @@
         @enderror
 
         <label>Password</label>
-        <input class="@error('password') error-border @enderror" type="password" name="password" required>
+        <input class="form-control @error('password') error-border @enderror" type="password" name="password" required>
         @error('password')
         <div class="error">
             {{ $message }}
         </div>
         @enderror
 
-        <button type="submit">Register</button>
+        <button class="btn btn-secondary" type="submit">Register</button>
 
         If you already have an account:
         <a href="{{ route('login') }}">

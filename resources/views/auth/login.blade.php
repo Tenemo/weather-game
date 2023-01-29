@@ -7,9 +7,8 @@
     <h4>Login</h4>
     <form method="POST" action="{{ route('login') }}">
         @csrf
-
         <label>Email</label>
-        <input class="@error('email') error-border @enderror" type="text" name="email" value="{{ old('email') }}" required>
+        <input class="form-control @error('email') error-border @enderror" type="text" name="email" value="{{ old('email') }}" required>
         @error('email')
         <div class="error">
             {{ $message }}
@@ -17,14 +16,14 @@
         @enderror
 
         <label>Password</label>
-        <input class="@error('password') error-border @enderror" type="password" name="password" required>
+        <input class="form-control @error('password') error-border @enderror" type="password" name="password" required>
         @error('password')
         <div class="error">
             {{ $message }}
         </div>
         @enderror
 
-        <button type="submit">Login</button>
+        <button class="btn btn-secondary" type="submit">Login</button>
     </form>
     @if (session('success'))
     <div class="flash-success">
