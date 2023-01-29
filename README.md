@@ -6,3 +6,4 @@ A game where you need to guess the temperature of the given place on Earth.
 
 -   loading indicators
 -   Fahreinheit/Celsuis scale toggle
+-   average temp from both apis
