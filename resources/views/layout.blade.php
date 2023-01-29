@@ -41,7 +41,7 @@
     <main>
         @yield('content')
     </main>
-    <footer>GitHub:&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://github.com/Tenemo">/Tenemo</a></footer>
+    <footer>Source:&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://github.com/Tenemo/weather-game">/weather-game</a></footer>
 </body>
 
 </html>
