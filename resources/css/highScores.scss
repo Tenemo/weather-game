@@ -3,5 +3,20 @@ section.highScores {
     padding: 10px;
     border-radius: 3px;
     min-height: 200px;
-    border: 1px solid white;
+    table {
+        width: 100%;
+        thead {
+            tr th {
+                &.index {
+                    width: 25px;
+                }
+                &.user {
+                    width: 300px;
+                }
+            }
+        }
+        tr {
+            border-bottom: 1px solid white;
+        }
+    }
 }
