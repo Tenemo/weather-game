@@ -5,7 +5,7 @@
 @section('content')
 <section class="result">
     @csrf
-    You have completed {{ $answers_count }} out of {{ $gameLength }} rounds. Congrats, your score is <b>{{ $score }}</b>!
+    You have completed {{ $answers_count }} out of {{ $gameLength }} rounds. Congrats, your total score is <b>{{ $score }}</b>!
     Your answers:
     <table>
         <thead>

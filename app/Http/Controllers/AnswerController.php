@@ -28,7 +28,13 @@ class AnswerController extends Controller
 
         $correct_answer = $answer->correct_answer;
         $value = $request->input('answer');
-        $score = 200 - (abs($correct_answer - $value)) * 10;
+        $score = 100 - (abs($correct_answer - $value)) * 7;
+        if ($score < 0) {
+            $score = 0;
+        }
+        if ($score === 100) {
+            $score = 200;
+        }
 
         $answer->score = $score;
         $answer->value = $value;

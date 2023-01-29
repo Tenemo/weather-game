@@ -10,6 +10,6 @@ class Game extends Model
 {
     use HasUuids, HasFactory;
     protected $fillable = [
-        'score',
+        'score', 'user_id'
     ];
 }
