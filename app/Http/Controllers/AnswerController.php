@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AnswerPostRequest;
 use App\Models\Answer;
 use App\Models\Game;
 use Illuminate\Support\Facades\Route;
@@ -15,21 +16,19 @@ class AnswerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AnswerPostRequest $request)
     {
 
         $gameLength = 3;
 
-        $request->validate([
-            'answer' => 'required|numeric|between:-100,100'
-        ]);
+        $request->validated();
 
         $answer_id = $request->input('answer_id');
         $answer = Answer::findOrFail($answer_id);
 
         $correct_answer = $answer->correct_answer;
         $value = $request->input('answer');
-        $score = 200 - (abs($correct_answer - $value));
+        $score = 200 - (abs($correct_answer - $value)) * 10;
 
         $answer->score = $score;
         $answer->value = $value;

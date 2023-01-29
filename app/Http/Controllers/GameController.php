@@ -34,13 +34,14 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Game $game)
+    public function show($id)
     {
         $gameLength = 3;
-        $answers = Answer::where('game_id', $game->id)
+        $game = Game::findOrFail($id);
+        $answers = Answer::where('game_id', $id)
             ->orderBy('id', 'asc')
             ->get();
-        $answers_count = Answer::where('game_id', $game->id)
+        $answers_count = Answer::where('game_id', $id)
             ->count();
 
         if ($answers_count > $gameLength - 1) {
@@ -51,7 +52,7 @@ class GameController extends Controller
                 ->take(10)
                 ->get();
             return view('result', [
-                'game_short_id' => strtoupper(substr($game->id, -4)),
+                'game_short_id' => strtoupper(substr($id, -4)),
                 'gameLength' => $gameLength,
                 'answers_count' => $answers_count,
                 'answers' => $answers,
@@ -70,7 +71,7 @@ class GameController extends Controller
 
         $answer = new Answer();
         $answer->correct_answer = mt_rand(-20, 40);
-        $answer->game_id = $game->id;
+        $answer->game_id = $id;
         $answer->city = $city;
         $answer->country = $country;
         $answer->country_code = $country_code;
@@ -78,8 +79,8 @@ class GameController extends Controller
         $answer->save();
 
         return view('game', [
-            'game_id' => $game->id,
-            'game_short_id' => strtoupper(substr($game->id, -4)),
+            'game_id' => $id,
+            'game_short_id' => strtoupper(substr($id, -4)),
             'gameLength' => $gameLength,
             'answers_count' => $answers_count + 1,
             'city' => $city,
