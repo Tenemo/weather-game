@@ -10,9 +10,12 @@
     <table>
         <thead>
             <tr>
-                <th class="index">Question</th>
+                <th class="index">#</th>
                 <th class="value">Your answer</th>
                 <th class="correct_answer">Actual temperature</th>
+                <th class="continent">Continent</th>
+                <th class="country">Country</th>
+                <th class="city">City</th>
             </tr>
         </thead>
         <tbody>
@@ -21,6 +24,9 @@
                 <td>{{ $loop->index + 1 }}.</td>
                 <td>{{ $answer->value }}</td>
                 <td>{{ $answer->correct_answer }}</td>
+                <td>{{ $answer->continent }}</td>
+                <td>{{ $answer->country }}</td>
+                <td>{{ $answer->city }}</td>
             </tr>
             @endforeach
         </tbody>

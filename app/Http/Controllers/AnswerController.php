@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Answer;
+use App\Models\Game;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -17,8 +18,10 @@ class AnswerController extends Controller
     public function store(Request $request)
     {
 
+        $gameLength = 3;
+
         $request->validate([
-            'answer' => 'required|numericbetween:-100,100'
+            'answer' => 'required|numeric|between:-100,100'
         ]);
 
         $answer_id = $request->input('answer_id');
@@ -34,6 +37,19 @@ class AnswerController extends Controller
         $game_id = $request->input('game_id');
 
         $answer->update();
+
+        $answers_count = Answer::where('game_id', $game_id)->count();
+        if ($answers_count > $gameLength - 1) {
+            $game = Game::findOrFail($game_id);
+            $answers = Answer::where('game_id', $game->id)
+                ->get()->toArray();
+            $game_score = array_reduce($answers, function ($carry, $item) {
+                return $carry + $item['score'];
+            });
+            $game->score = $game_score;
+            $game->update();
+        }
+
 
         return
             redirect()

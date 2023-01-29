@@ -5,10 +5,16 @@ section.result {
         thead {
             tr th {
                 &.index {
+                    width: 50px;
+                }
+                &.continent {
                     width: 100px;
                 }
                 &.value {
-                    width: 120px;
+                    width: 110px;
+                }
+                &.correct_answer {
+                    width: 180px;
                 }
             }
         }

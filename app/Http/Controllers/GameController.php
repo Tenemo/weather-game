@@ -38,18 +38,13 @@ class GameController extends Controller
     {
         $gameLength = 3;
         $game = Game::findOrFail($id);
-        $answers = Answer::where('game_id', $game->id)->orderBy('created_at', 'desc')->get();
-        $answers_count = Answer::where('game_id', $game->id)->orderBy('created_at', 'desc')->count();
-
-        $answersString = "";
-        foreach ($answers as $answer) {
-            $answersString .= $answer->value . " ";
-        }
+        $answers = Answer::where('game_id', $game->id)
+            ->orderBy('id', 'asc')
+            ->get();
+        $answers_count = Answer::where('game_id', $game->id)
+            ->count();
 
         if ($answers_count > $gameLength - 1) {
-            $game->score = mt_rand(0, 1000);
-            $game->update();
-
             return view('result', [
                 'game_short_id' => strtoupper(substr($id, -4)),
                 'gameLength' => $gameLength,
