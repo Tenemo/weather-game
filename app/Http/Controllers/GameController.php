@@ -34,10 +34,9 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Game $game)
     {
         $gameLength = 3;
-        $game = Game::findOrFail($id);
         $answers = Answer::where('game_id', $game->id)
             ->orderBy('id', 'asc')
             ->get();
@@ -52,7 +51,7 @@ class GameController extends Controller
                 ->take(10)
                 ->get();
             return view('result', [
-                'game_short_id' => strtoupper(substr($id, -4)),
+                'game_short_id' => strtoupper(substr($game->id, -4)),
                 'gameLength' => $gameLength,
                 'answers_count' => $answers_count,
                 'answers' => $answers,
@@ -71,7 +70,7 @@ class GameController extends Controller
 
         $answer = new Answer();
         $answer->correct_answer = mt_rand(-20, 40);
-        $answer->game_id = $id;
+        $answer->game_id = $game->id;
         $answer->city = $city;
         $answer->country = $country;
         $answer->country_code = $country_code;
@@ -79,8 +78,8 @@ class GameController extends Controller
         $answer->save();
 
         return view('game', [
-            'game_id' => $id,
-            'game_short_id' => strtoupper(substr($id, -4)),
+            'game_id' => $game->id,
+            'game_short_id' => strtoupper(substr($game->id, -4)),
             'gameLength' => $gameLength,
             'answers_count' => $answers_count + 1,
             'city' => $city,
@@ -88,28 +87,5 @@ class GameController extends Controller
             'continent' => $continent,
             'answer_id' => $answer->id,
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
     }
 }

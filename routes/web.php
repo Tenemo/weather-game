@@ -10,12 +10,15 @@ Route::get('/', [HomeController::class, 'home'])
 
 Route::resource('play', GameController::class)
     ->except([
+        'index',
         'create',
         'edit',
+        'update',
         'destroy',
     ]);
 Route::resource('answer', AnswerController::class)
     ->except([
+        'index',
         'create',
         'show',
         'edit',
