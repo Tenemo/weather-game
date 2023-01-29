@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\WeatherController;
+
 use App\Models\Game;
 use App\Models\Answer;
 use Illuminate\Support\Facades\DB;
@@ -69,9 +71,16 @@ class GameController extends Controller
         $country = $randomCity['country'];
         $country_code = $randomCity['countryCode'];
         $continent = $randomCity['continent'];
+        $lat = $randomCity['lat'];
+        $lon = $randomCity['lon'];
 
         $answer = new Answer();
-        $answer->correct_answer = mt_rand(-20, 40);
+
+        list($temperature, $time) = WeatherController::checkWeather($lat, $lon);
+
+        $answer->correct_answer = $temperature;
+
+
         $answer->game_id = $id;
         $answer->city = $city;
         $answer->country = $country;
@@ -88,6 +97,7 @@ class GameController extends Controller
             'country' => $country,
             'continent' => $continent,
             'answer_id' => $answer->id,
+            'time' => $time,
         ]);
     }
 
