@@ -46,12 +46,13 @@ class GameController extends Controller
 
         if ($answers_count > $gameLength - 1) {
             $highScores = DB::table('games')
-                ->join('users', 'games.user_id', '=', 'users.id')
-                ->select('users.name', 'games.score')
+                ->select('games.username', 'games.score')
+                ->whereNotNull('games.username')
                 ->orderBy('score', 'desc')
                 ->take(10)
                 ->get();
             return view('result', [
+                'game_id' => $id,
                 'game_short_id' => strtoupper(substr($id, -4)),
                 'gameLength' => $gameLength,
                 'answers_count' => $answers_count,
@@ -88,5 +89,27 @@ class GameController extends Controller
             'continent' => $continent,
             'answer_id' => $answer->id,
         ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'username' => 'required',
+        ]);
+
+        $game = Game::findOrFail($id);
+
+        $game->username = $request->input('username');
+
+        $game->update();
+
+        return redirect()->route('home');
     }
 }

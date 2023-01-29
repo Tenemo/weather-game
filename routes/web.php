@@ -14,7 +14,6 @@ Route::resource('play', GameController::class)
         'index',
         'create',
         'edit',
-        'update',
         'destroy',
     ]);
 Route::resource('answer', AnswerController::class)
@@ -27,8 +26,22 @@ Route::resource('answer', AnswerController::class)
         'destroy'
     ]);
 
-Route::match(['get', 'post'], '/register', [AuthController::class, 'register'])->name('register')->middleware('guest');
+Route::match(['get', 'post'], '/register', [AuthController::class, 'register'])
+    ->name('register')
+    ->middleware('guest');
 
-Route::match(['get', 'post'], '/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
+Route::match(['get', 'post'], '/login', [AuthController::class, 'login'])
+    ->name('login')
+    ->middleware('guest');
 
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+Route::get('/logout', [AuthController::class, 'logout'])
+    ->name('logout')
+    ->middleware('auth');
+
+Route::get('/users', [AuthController::class, 'users'])
+    ->name('users')
+    ->middleware('auth');
+
+Route::get('/delete', [AuthController::class, 'delete'])
+    ->name('delete')
+    ->middleware('auth');

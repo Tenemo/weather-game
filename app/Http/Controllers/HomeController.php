@@ -10,8 +10,8 @@ class HomeController extends Controller
     public function home()
     {
         $highScores = DB::table('games')
-            ->join('users', 'games.user_id', '=', 'users.id')
-            ->select('users.name', 'games.score')
+            ->select('games.username', 'games.score')
+            ->whereNotNull('games.username')
             ->orderBy('score', 'desc')
             ->take(10)
             ->get();

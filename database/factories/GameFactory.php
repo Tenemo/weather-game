@@ -20,8 +20,8 @@ class GameFactory extends Factory
     {
         return [
             'id' => fake()->uuid(),
-            'score' => mt_rand(0, 1000),
-            'user_id' => fake()->optional()->randomElement(User::pluck('id')->toArray()),
+            'score' => mt_rand(0, 10),
+            'username' => fake()->username(),
         ];
     }
 }

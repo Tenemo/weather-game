@@ -29,4 +29,12 @@ section.result {
     button {
         margin-top: 10px;
     }
+    form.set-username {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .try-again {
+        margin-top: 30px;
+    }
 }

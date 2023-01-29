@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'weather.game ' . $game_short_id . ' result')
+@section('title', 'weather.game - ' . $game_short_id . ' result')
 
 @section('content')
 <section class="result">
@@ -29,7 +29,20 @@
             @endforeach
         </tbody>
     </table>
-    <form method="POST" action="{{ route('play.store') }}">
+    <form class="set-username" method="POST" action="{{ route('play.update', $game_id) }}">
+        @csrf
+        @method('PUT')
+        <label for="username">If you want your score of <b>{{ $score }}</b> to appear on the high scores list, provide a username to save the result under:</label>
+        <input class="@error('name') error-border @enderror" id="username" type="text" name="username" value="{{ old('username') }}" required>
+        @error('username')
+        <div class="error">
+            {{ $message }}
+        </div>
+        @enderror
+        <input autocomplete="off" id="game_id" type="hidden" name="game_id" value="{{ $game_id }}">
+        <button type="submit" class="btn btn-secondary">Save score</button>
+    </form>
+    <form method="POST" action="{{ route('play.store') }}" class="try-again">
         @csrf
         <button type="submit" class="btn btn-secondary">Try again</button>
     </form>

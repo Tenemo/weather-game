@@ -15,7 +15,8 @@
         "endforelse",
         "endsection",
         "forelse",
-        "Laravel"
+        "Laravel",
+        "lastpass"
     ],
     "html.autoClosingTags": true,
     "editor.parameterHints.enabled": true,

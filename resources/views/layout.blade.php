@@ -21,13 +21,27 @@
 <body>
     <noscript>You need to enable JavaScript to run this app. </noscript>
     <header class="header">
-        <a href="{{ route('home') }}">
+        <a class="logo" href="{{ route('home') }}">
             weather.game
         </a>
+        @auth
+        <div class="userActions">
+            <span class="username">Logged in as <b>{{ Auth::user()->name }}</b></span>
+            <a class="view-users" href="{{ route('users') }}">Users</a>
+            <a class="delete" href="{{ route('delete') }}">Delete account</a>
+            <a class="logout" href="{{ route('logout') }}">Logout</a>
+        </div>
+        @else
+        <div class="userActions">
+            <a class="register" href="{{ route('register') }}">Register</a>
+            <a class="login" href="{{ route('login') }}">Login</a>
+        </div>
+        @endauth
     </header>
     <main>
         @yield('content')
     </main>
+    <footer>GitHub:&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://github.com/Tenemo">/Tenemo</a></footer>
 </body>
 
 </html>

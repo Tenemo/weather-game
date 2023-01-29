@@ -19,8 +19,7 @@ class AnswerFactory extends Factory
      */
     public function definition()
     {
-
-        $answer = [
+        return [
             'id' => fake()->uuid(),
             'value' => mt_rand(-20, 40),
             'correct_answer' => mt_rand(-20, 40),
@@ -29,15 +28,7 @@ class AnswerFactory extends Factory
             'country' => fake()->country(),
             'country_code' => fake()->countryCode(),
             'continent' => fake()->word(),
+            'game_id' => Game::factory(),
         ];
-        if (mt_rand(0, 2) === 2) {
-            $userId = User::factory();
-            $answer['game_id'] = Game::factory(['user_id' => $userId]);
-            $answer['user_id'] = $userId;
-        } else {
-            $answer['game_id'] = Game::factory();
-        }
-
-        return $answer;
     }
 }

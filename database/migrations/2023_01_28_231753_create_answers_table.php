@@ -22,23 +22,16 @@ return new class extends Migration
 
             $table->integer('score')->nullable($value = true);
 
-            $table->uuid('user_id')
-                ->nullable($value = true);
-
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users');
-
-            $table->uuid('game_id');
-
             $table->string('city');
             $table->string('country');
             $table->string('country_code');
             $table->string('continent');
 
+            $table->uuid('game_id');
             $table->foreign('game_id')
                 ->references('id')
-                ->on('games');
+                ->on('games')
+                ->onDelete("cascade");
 
             $table->timestamps();
         });

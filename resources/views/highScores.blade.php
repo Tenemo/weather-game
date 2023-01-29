@@ -1,7 +1,5 @@
 <section class="highScores">
     <h4>High scores:</h4>
-
-
     @if ($highScores)
     <table>
         <thead>
@@ -16,7 +14,7 @@
             <tr>
                 <td>{{ $loop->index + 1}}</td>
                 <td>{{ $score->score }}</td>
-                <td>{{ $score->name }}</td>
+                <td>{{ $score->username }}</td>
             </tr>
             @endforeach
         </tbody>

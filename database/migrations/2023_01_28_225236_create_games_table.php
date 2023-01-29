@@ -19,12 +19,8 @@ return new class extends Migration
             $table->integer('score')
                 ->nullable($value = true);
 
-            $table->uuid('user_id')
+            $table->string('username')
                 ->nullable($value = true);
-
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users');
 
             $table->timestamps();
         });
