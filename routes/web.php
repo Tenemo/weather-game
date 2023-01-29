@@ -17,7 +17,6 @@ Route::resource('play', GameController::class)
     ]);
 Route::resource('answer', AnswerController::class)
     ->except([
-        'index',
         'create',
         'show',
         'edit',

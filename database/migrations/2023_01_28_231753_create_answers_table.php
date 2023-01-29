@@ -17,10 +17,10 @@ return new class extends Migration
             $table->uuid('id')
                 ->primary();
 
-            $table->integer('input');
+            $table->integer('value')->nullable($value = true);
             $table->integer('correct_answer');
 
-            $table->integer('score');
+            $table->integer('score')->nullable($value = true);
 
             $table->uuid('user_id')
                 ->nullable($value = true);
@@ -30,6 +30,11 @@ return new class extends Migration
                 ->on('users');
 
             $table->uuid('game_id');
+
+            $table->string('city');
+            $table->string('country');
+            $table->string('country_code');
+            $table->string('continent');
 
             $table->foreign('game_id')
                 ->references('id')

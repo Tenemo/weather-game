@@ -7,16 +7,16 @@
         <thead>
             <tr>
                 <th class="index">#</th>
-                <th class="user">User</th>
                 <th class="score">Score</th>
+                <th class="user">User</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($highScores as $score)
             <tr>
                 <td>{{ $loop->index + 1}}</td>
-                <td>{{ $score->name }}</td>
                 <td>{{ $score->score }}</td>
+                <td>{{ $score->name }}</td>
             </tr>
             @endforeach
         </tbody>

@@ -22,9 +22,13 @@ class AnswerFactory extends Factory
 
         $answer = [
             'id' => fake()->uuid(),
-            'input' => mt_rand(-20, 40),
+            'value' => mt_rand(-20, 40),
             'correct_answer' => mt_rand(-20, 40),
             'score' => mt_rand(0, 1000),
+            'city' => fake()->city(),
+            'country' => fake()->country(),
+            'country_code' => fake()->countryCode(),
+            'continent' => fake()->word(),
         ];
         if (mt_rand(0, 2) === 2) {
             $userId = User::factory();

@@ -25,9 +25,6 @@
             weather.game
         </a>
     </header>
-    @if (session('success'))
-    <div class="flash-success">{{ session('success') }}</div>
-    @endif
     <main>
         @yield('content')
     </main>

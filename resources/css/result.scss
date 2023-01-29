@@ -1,0 +1,22 @@
+section.result {
+    padding: 20px;
+    table {
+        width: 100%;
+        thead {
+            tr th {
+                &.index {
+                    width: 100px;
+                }
+                &.value {
+                    width: 120px;
+                }
+            }
+        }
+        tr {
+            border-bottom: 1px solid lightgrey;
+        }
+    }
+    button {
+        margin-top: 10px;
+    }
+}

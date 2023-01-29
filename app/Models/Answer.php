@@ -11,6 +11,6 @@ class Answer extends Model
     use HasFactory, HasUuids;
 
     protected $fillable = [
-        'score', 'correct_answer', 'input'
+        'score', 'correct_answer', 'value'
     ];
 }
