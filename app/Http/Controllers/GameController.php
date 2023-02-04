@@ -51,7 +51,7 @@ class GameController extends Controller
                 ->select('games.username', 'games.score')
                 ->whereNotNull('games.username')
                 ->orderBy('score', 'desc')
-                ->take(10)
+                ->take(20)
                 ->get();
             return view('result', [
                 'game_id' => $id,

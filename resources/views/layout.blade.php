@@ -37,19 +37,6 @@
         @yield('content')
     </main>
     <footer>
-        @auth
-        <div class="userActions">
-            <span class="username">Logged in as <b>{{ Auth::user()->name }}</b></span>
-            <a class="view-users" href="{{ route('users') }}">Users</a>
-            <a class="delete" href="{{ route('delete') }}">Delete account</a>
-            <a class="logout" href="{{ route('logout') }}">Logout</a>
-        </div>
-        @else
-        <div class="userActions">
-            <a class="register" href="{{ route('register') }}">Register</a>
-            <a class="login" href="{{ route('login') }}">Login</a>
-        </div>
-        @endauth
         <span>Source:&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://github.com/Tenemo/weather-game">/weather-game</a><span></span>
     </footer>
 </body>

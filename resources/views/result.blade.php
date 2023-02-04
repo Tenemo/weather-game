@@ -29,6 +29,7 @@
             @endforeach
         </tbody>
     </table>
+    @if($score > $highScores->last()->score)
     <form class="set-username" method="POST" action="{{ route('play.update', $game_id) }}">
         @csrf
         @method('PUT')
@@ -42,6 +43,7 @@
         <input autocomplete="off" id="game_id" type="hidden" name="game_id" value="{{ $game_id }}">
         <button type="submit" class="btn btn-secondary">Save score</button>
     </form>
+    @endif
     <form method="POST" action="{{ route('play.store') }}" class="try-again">
         @csrf
         <button type="submit" class="btn btn-secondary">Try again</button>
